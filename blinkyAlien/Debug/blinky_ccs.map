@@ -1,0 +1,390 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.6                      
+******************************************************************************
+>> Linked Mon May 07 22:47:09 2018
+
+OUTPUT FILE NAME:   <blinkyAlien.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00001519
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00002189  0003de77  R  X
+  SRAM                  20000000   00008000  0000023f  00007dc1  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002190   00002190    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000017ee   000017ee    r-x .text
+  00001a5c    00001a5c    000006f7   000006f7    r-- .const
+  00002158    00002158    00000038   00000038    r-- .cinit
+20000000    20000000    00000240   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000002b   00000000    rw- .bss
+  2000022c    2000022c    00000014   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000017ee     
+                  0000026c    0000021e     rtsv7M4_T_le_v4SPD16_eabi.lib : ll_div_t2.obj (.text)
+                  0000048a    00000002     tm4c123gh6pm_startup_ccs.obj (.text:FaultISR)
+                  0000048c    000001f8     ssd1289.obj (.text:LCD_init)
+                  00000684    000001d8     bmp280.obj (.text:readPressure)
+                  0000085c    00000188     blinky.obj (.text:main)
+                  000009e4    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00000b16    00000002     tm4c123gh6pm_startup_ccs.obj (.text:IntDefaultHandler)
+                  00000b18    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00000c28    0000010a     blinky.obj (.text:print_sensor_data)
+                  00000d32    00000002     tm4c123gh6pm_startup_ccs.obj (.text:NmiSR)
+                  00000d34    000000f4     driverlib.lib : sysctl.obj (.text:SysCtlClockSet)
+                  00000e28    000000bc     bmp280.obj (.text:calibration)
+                  00000ee4    000000b8     bmp280.obj (.text:readHumidity)
+                  00000f9c    000000a8     bmp280.obj (.text:bmp_i2cReadData)
+                  00001044    000000a0     ssd1289.obj (.text:drawLine)
+                  000010e4    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00001180    0000007a                                   : memset_t2.obj (.text)
+                  000011fa    00000002                                   : l_div0.obj (.text)
+                  000011fc    0000006c     bmp280.obj (.text:bmp_initI2C)
+                  00001268    0000006c     bmp280.obj (.text:bmp_readTemperature)
+                  000012d4    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  00001340    0000006a                                   : copy_decompress_rle.obj (.text)
+                  000013aa    00000002     --HOLE-- [fill = 0]
+                  000013ac    00000064     bmp280.obj (.text:bmp_i2cRead)
+                  00001410    0000005c     ssd1289.obj (.text:LCD_fillScr)
+                  0000146c    00000058     ssd1289.obj (.text:ssd1289_char)
+                  000014c4    00000054     blinky.obj (.text:itoa)
+                  00001518    00000050     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00001568    0000004c     driverlib.lib : i2c.obj (.text:I2CMasterInitExpClk)
+                  000015b4    0000004c     ssd1289.obj (.text:LCD_Writ_Bus)
+                  00001600    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  0000164c    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00001694    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : ll_tofs_t2.obj (.text)
+                  000016dc    00000044                                   : exit.obj (.text)
+                  00001720    0000003c     ssd1289.obj (.text:LCD_setXY)
+                  0000175c    00000038     ssd1289.obj (.text:LCD_Write_COM)
+                  00001794    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReady)
+                  000017cc    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001800    00000030     ssd1289.obj (.text:drawPixel)
+                  00001830    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  0000185a    00000026     blinky.obj (.text:concat)
+                  00001880    00000024     bmp280.obj (.text:read24)
+                  000018a4    00000024     ssd1289.obj (.text:ssd1289_string)
+                  000018c8    00000020     ssd1289.obj (.text:LCD_Write_DATA)
+                  000018e8    00000020     ssd1289.obj (.text:setColor)
+                  00001908    0000001e     bmp280.obj (.text:read16_LE)
+                  00001926    00000018     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000193e    00000002     --HOLE-- [fill = 0]
+                  00001940    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00001958    00000018                                   : ll_mul_t2.obj (.text)
+                  00001970    00000016     ssd1289.obj (.text:setPixel)
+                  00001986    00000014     ssd1289.obj (.text:LCD_Write_COM_DATA)
+                  0000199a    00000002     --HOLE-- [fill = 0]
+                  0000199c    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  000019b0    00000014     ssd1289.obj (.text:sign)
+                  000019c4    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeI2C)
+                  000019d6    00000012                   : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  000019e8    0000000e     ssd1289.obj (.text:LCD_clrXY)
+                  000019f6    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00001a04    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00001a10    0000000a     driverlib.lib : i2c.obj (.text:I2CMasterEnable)
+                  00001a1a    00000008                   : i2c.obj (.text:I2CMasterBusy)
+                  00001a22    00000008                   : i2c.obj (.text:I2CMasterSlaveAddrSet)
+                  00001a2a    00000008     bmp280.obj (.text:read8)
+                  00001a32    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  00001a38    00000006     tm4c123gh6pm_startup_ccs.obj (.text:ResetISR)
+                  00001a3e    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00001a44    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00001a4a    00000004     driverlib.lib : i2c.obj (.text:I2CMasterControl)
+                  00001a4e    00000004                   : i2c.obj (.text:I2CMasterDataGet)
+                  00001a52    00000004                   : i2c.obj (.text:I2CMasterDataPut)
+                  00001a56    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+
+.const     0    00001a5c    000006f7     
+                  00001a5c    000005f0     ssd1289.obj (.const:font_ascii)
+                  0000204c    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  000020dc    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00002148    0000000b     blinky.obj (.const:.string)
+
+.cinit     0    00002158    00000038     
+                  00002158    0000000f     (.cinit..data.load) [load image, compression = rle]
+                  00002167    00000001     --HOLE-- [fill = 0]
+                  00002168    0000000c     (__TI_handler_table)
+                  00002174    00000004     --HOLE-- [fill = 0]
+                  00002178    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002180    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.bss       0    20000200    0000002b     UNINITIALIZED
+                  20000200    00000024     bmp280.obj (.bss:cal_data)
+                  20000224    00000004     (.common:t_fine)
+                  20000228    00000001     (.common:fcolorb)
+                  20000229    00000001     (.common:fcolorg)
+                  2000022a    00000001     (.common:fcolorr)
+
+.TI.noinit 
+*          0    20000200    00000000     UNINITIALIZED
+
+.data      0    2000022c    00000014     UNINITIALIZED
+                  2000022c    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000234    00000008                                   : exit.obj (.data)
+                  2000023c    00000004                                   : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    2000022c    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002180 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002158, load size=0000000f bytes, run addr=2000022c, run size=00000014 bytes, compression=rle
+	.bss: load addr=00002178, load size=00000008 bytes, run addr=20000200, run size=0000002b bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002168 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+000016dd  C$$EXIT                 
+00001831  GPIODirModeSet          
+000009e5  GPIOPadConfigSet        
+0000164d  GPIOPinConfigure        
+00001927  GPIOPinTypeGPIOOutput   
+000019c5  GPIOPinTypeI2C          
+000019d7  GPIOPinTypeI2CSCL       
+00001a33  GPIOPinWrite            
+00001a1b  I2CMasterBusy           
+00001a4b  I2CMasterControl        
+00001a4f  I2CMasterDataGet        
+00001a53  I2CMasterDataPut        
+00001a11  I2CMasterEnable         
+00001569  I2CMasterInitExpClk     
+00001a23  I2CMasterSlaveAddrSet   
+000015b5  LCD_Writ_Bus            
+0000175d  LCD_Write_COM           
+00001987  LCD_Write_COM_DATA      
+000018c9  LCD_Write_DATA          
+000019e9  LCD_clrXY               
+00001411  LCD_fillScr             
+0000048d  LCD_init                
+00001721  LCD_setXY               
+00001a39  ResetISR                
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+00000b19  SysCtlClockGet          
+00000d35  SysCtlClockSet          
+00001a3f  SysCtlDelay             
+000017cd  SysCtlPeripheralEnable  
+00001795  SysCtlPeripheralReady   
+20000200  __STACK_END             
+00000200  __STACK_SIZE            
+20000200  __STACK_TOP             
+00002180  __TI_CINIT_Base         
+00002190  __TI_CINIT_Limit        
+00002168  __TI_Handler_Table_Base 
+00002174  __TI_Handler_Table_Limit
+000012d5  __TI_auto_init          
+20000234  __TI_cleanup_ptr        
+000019f7  __TI_decompress_none    
+00001a45  __TI_decompress_rle24   
+20000238  __TI_dtors_ptr          
+00000000  __TI_static_base__      
+00001a05  __TI_zero_init          
+00001695  __aeabi_l2f             
+000011fb  __aeabi_ldiv0           
+0000026d  __aeabi_ldivmod         
+00001959  __aeabi_lmul            
+00001181  __aeabi_memclr          
+00001181  __aeabi_memclr4         
+00001181  __aeabi_memclr8         
+000010e5  __aeabi_memcpy          
+000010e5  __aeabi_memcpy4         
+000010e5  __aeabi_memcpy8         
+00001183  __aeabi_memset          
+00001183  __aeabi_memset4         
+00001183  __aeabi_memset8         
+ffffffff  __binit__               
+ffffffff  __c_args__              
+20000000  __stack                 
+00001941  _args_main              
+00001519  _c_int00                
+2000022c  _lock                   
+000019ab  _nop                    
+000019a3  _register_lock          
+0000199d  _register_unlock        
+00001a57  _system_pre_init        
+20000230  _unlock                 
+000016e1  abort                   
+ffffffff  binit                   
+000013ad  bmp_i2cRead             
+00000f9d  bmp_i2cReadData         
+000011fd  bmp_initI2C             
+00001269  bmp_readTemperature     
+20000200  cal_data                
+00000e29  calibration             
+0000185b  concat                  
+00001601  copy_in                 
+00001045  drawLine                
+00001801  drawPixel               
+000016e9  exit                    
+20000228  fcolorb                 
+20000229  fcolorg                 
+2000022a  fcolorr                 
+00001a5c  font_ascii              
+00000000  g_pfnVectors            
+000014c5  itoa                    
+0000085d  main                    
+2000023c  main_func_sp            
+000010e5  memcpy                  
+00001189  memset                  
+00000c29  print_sensor_data       
+00001909  read16_LE               
+00001881  read24                  
+00001a2b  read8                   
+00000ee5  readHumidity            
+00000685  readPressure            
+00001909  readS16_LE              
+000018e9  setColor                
+00001971  setPixel                
+000019b1  sign                    
+0000146d  ssd1289_char            
+000018a5  ssd1289_string          
+20000224  t_fine                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_static_base__      
+00000000  g_pfnVectors            
+00000200  __STACK_SIZE            
+0000026d  __aeabi_ldivmod         
+0000048d  LCD_init                
+00000685  readPressure            
+0000085d  main                    
+000009e5  GPIOPadConfigSet        
+00000b19  SysCtlClockGet          
+00000c29  print_sensor_data       
+00000d35  SysCtlClockSet          
+00000e29  calibration             
+00000ee5  readHumidity            
+00000f9d  bmp_i2cReadData         
+00001045  drawLine                
+000010e5  __aeabi_memcpy          
+000010e5  __aeabi_memcpy4         
+000010e5  __aeabi_memcpy8         
+000010e5  memcpy                  
+00001181  __aeabi_memclr          
+00001181  __aeabi_memclr4         
+00001181  __aeabi_memclr8         
+00001183  __aeabi_memset          
+00001183  __aeabi_memset4         
+00001183  __aeabi_memset8         
+00001189  memset                  
+000011fb  __aeabi_ldiv0           
+000011fd  bmp_initI2C             
+00001269  bmp_readTemperature     
+000012d5  __TI_auto_init          
+000013ad  bmp_i2cRead             
+00001411  LCD_fillScr             
+0000146d  ssd1289_char            
+000014c5  itoa                    
+00001519  _c_int00                
+00001569  I2CMasterInitExpClk     
+000015b5  LCD_Writ_Bus            
+00001601  copy_in                 
+0000164d  GPIOPinConfigure        
+00001695  __aeabi_l2f             
+000016dd  C$$EXIT                 
+000016e1  abort                   
+000016e9  exit                    
+00001721  LCD_setXY               
+0000175d  LCD_Write_COM           
+00001795  SysCtlPeripheralReady   
+000017cd  SysCtlPeripheralEnable  
+00001801  drawPixel               
+00001831  GPIODirModeSet          
+0000185b  concat                  
+00001881  read24                  
+000018a5  ssd1289_string          
+000018c9  LCD_Write_DATA          
+000018e9  setColor                
+00001909  read16_LE               
+00001909  readS16_LE              
+00001927  GPIOPinTypeGPIOOutput   
+00001941  _args_main              
+00001959  __aeabi_lmul            
+00001971  setPixel                
+00001987  LCD_Write_COM_DATA      
+0000199d  _register_unlock        
+000019a3  _register_lock          
+000019ab  _nop                    
+000019b1  sign                    
+000019c5  GPIOPinTypeI2C          
+000019d7  GPIOPinTypeI2CSCL       
+000019e9  LCD_clrXY               
+000019f7  __TI_decompress_none    
+00001a05  __TI_zero_init          
+00001a11  I2CMasterEnable         
+00001a1b  I2CMasterBusy           
+00001a23  I2CMasterSlaveAddrSet   
+00001a2b  read8                   
+00001a33  GPIOPinWrite            
+00001a39  ResetISR                
+00001a3f  SysCtlDelay             
+00001a45  __TI_decompress_rle24   
+00001a4b  I2CMasterControl        
+00001a4f  I2CMasterDataGet        
+00001a53  I2CMasterDataPut        
+00001a57  _system_pre_init        
+00001a5c  font_ascii              
+00002168  __TI_Handler_Table_Base 
+00002174  __TI_Handler_Table_Limit
+00002180  __TI_CINIT_Base         
+00002190  __TI_CINIT_Limit        
+20000000  __stack                 
+20000200  __STACK_END             
+20000200  __STACK_TOP             
+20000200  cal_data                
+20000224  t_fine                  
+20000228  fcolorb                 
+20000229  fcolorg                 
+2000022a  fcolorr                 
+2000022c  _lock                   
+20000230  _unlock                 
+20000234  __TI_cleanup_ptr        
+20000238  __TI_dtors_ptr          
+2000023c  main_func_sp            
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  binit                   
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+
+[105 symbols]

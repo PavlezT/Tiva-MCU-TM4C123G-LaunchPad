@@ -1,0 +1,1 @@
+"./XPT2046.o" "./blinky.o" "./bme280.o" "./bme280_old.o" "./bmp280.o" "./rgb.o" "./ssd1289.o" "./startup_ccs.o" "./tm4c123gh6pm_startup_ccs_gcc.o" -Wl,-T"../tm4c123gh6pm.lds" -Wl,--start-group -lc -Wl,--end-group 

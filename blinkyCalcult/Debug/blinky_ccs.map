@@ -1,0 +1,458 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.6                      
+******************************************************************************
+>> Linked Thu May 10 20:41:35 2018
+
+OUTPUT FILE NAME:   <blinkyCalcult.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000014c9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000259f  0003da61  R  X
+  SRAM                  20000000   00008000  000005fb  00007a05  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000025a0   000025a0    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000019e4   000019e4    r-x .text
+  00001c50    00001c50    000008ff   000008ff    r-- .const
+  00002550    00002550    00000050   00000050    r-- .cinit
+20000000    20000000    00000600   00000000    rw-
+  20000000    20000000    0000026c   00000000    rw- .vtable
+  2000026c    2000026c    00000200   00000000    rw- .stack
+  20000470    20000470    0000016b   00000000    rw- .bss
+  200005dc    200005dc    00000024   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000019e4     
+                  0000026c    000001f8     ssd1289.obj (.text:LCD_init)
+                  00000464    000001f4     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.obj (.text)
+                  00000658    000001dc     blinky.obj (.text:main)
+                  00000834    0000018c     blinky.obj (.text:init_cells)
+                  000009c0    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00000af2    00000002     tm4c123gh6pm_startup_ccs.obj (.text:FaultISR)
+                  00000af4    00000118     XPT2046.obj (.text:Touch_init)
+                  00000c0c    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00000d1c    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  00000e10    000000a8     blinky.obj (.text:init_calc)
+                  00000eb8    000000a0     ssd1289.obj (.text:drawLine)
+                  00000f58    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00000ff4    0000007a                                   : memset_t2.obj (.text)
+                  0000106e    00000002     tm4c123gh6pm_startup_ccs.obj (.text:IntDefaultHandler)
+                  00001070    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  000010dc    0000006a                                   : copy_decompress_rle.obj (.text)
+                  00001146    00000002     tm4c123gh6pm_startup_ccs.obj (.text:NmiSR)
+                  00001148    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  000011b0    00000068     blinky.obj (.text:renderSelectedOperation)
+                  00001218    0000005c     ssd1289.obj (.text:LCD_fillScr)
+                  00001274    00000058     XPT2046.obj (.text:Touch_getxy)
+                  000012cc    00000058     blinky.obj (.text:divide)
+                  00001324    00000058     blinky.obj (.text:multiply)
+                  0000137c    00000058     ssd1289.obj (.text:ssd1289_char)
+                  000013d4    00000054     blinky.obj (.text:itoa)
+                  00001428    00000050     blinky.obj (.text:renderActualNumber)
+                  00001478    00000050     blinky.obj (.text:renderPreviousNumber)
+                  000014c8    00000050     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00001518    0000004c     ssd1289.obj (.text:LCD_Writ_Bus)
+                  00001564    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  000015b0    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  000015f8    00000048     blinky.obj (.text:findClickedButton)
+                  00001640    00000044     XPT2046.obj (.text:Touch_spi)
+                  00001684    00000044     driverlib.lib : gpio.obj (.text:_GPIOIntNumberGet)
+                  000016c8    00000044     blinky.obj (.text:minus)
+                  0000170c    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.text)
+                  00001750    00000040     blinky.obj (.text:isClicked)
+                  00001790    0000003c     ssd1289.obj (.text:LCD_setXY)
+                  000017cc    0000003c     driverlib.lib : ssi.obj (.text:SSIConfigSetExpClk)
+                  00001808    00000038     ssd1289.obj (.text:LCD_Write_COM)
+                  00001840    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReady)
+                  00001878    00000034                   : interrupt.obj (.text:IntRegister)
+                  000018ac    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000018e0    00000034     blinky.obj (.text:numberPress)
+                  00001914    00000034     blinky.obj (.text:summ)
+                  00001948    00000030     blinky.obj (.text:countTotal)
+                  00001978    00000030     ssd1289.obj (.text:drawPixel)
+                  000019a8    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000019d2    00000002     --HOLE-- [fill = 0]
+                  000019d4    00000028     XPT2046.obj (.text:IntGPIOf)
+                  000019fc    00000024     blinky.obj (.text:resetNumbers)
+                  00001a20    00000024     ssd1289.obj (.text:ssd1289_string)
+                  00001a44    00000020     ssd1289.obj (.text:LCD_Write_DATA)
+                  00001a64    00000020     ssd1289.obj (.text:setColor)
+                  00001a84    0000001e     XPT2046.obj (.text:Touch_prepare)
+                  00001aa2    00000002     --HOLE-- [fill = 0]
+                  00001aa4    0000001c     blinky.obj (.text:eraseLast)
+                  00001ac0    00000018     driverlib.lib : gpio.obj (.text:GPIOIntRegister)
+                  00001ad8    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00001af0    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00001b08    00000018                                   : ll_mul_t2.obj (.text)
+                  00001b20    00000016     ssd1289.obj (.text:setPixel)
+                  00001b36    00000014     ssd1289.obj (.text:LCD_Write_COM_DATA)
+                  00001b4a    00000002     --HOLE-- [fill = 0]
+                  00001b4c    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00001b60    00000014     ssd1289.obj (.text:sign)
+                  00001b74    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeSSI)
+                  00001b86    00000012                   : ssi.obj (.text:SSIDataGetNonBlocking)
+                  00001b98    00000010     blinky.obj (.text:refreshData)
+                  00001ba8    0000000e     driverlib.lib : gpio.obj (.text:GPIOIntStatus)
+                  00001bb6    0000000e     ssd1289.obj (.text:LCD_clrXY)
+                  00001bc4    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00001bd2    0000000c     driverlib.lib : gpio.obj (.text:GPIOIntEnable)
+                  00001bde    0000000c     XPT2046.obj (.text:Touch_ccs)
+                  00001bea    0000000c     XPT2046.obj (.text:Touch_scs)
+                  00001bf6    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00001c02    0000000a     driverlib.lib : ssi.obj (.text:SSIDataPut)
+                  00001c0c    0000000a                   : ssi.obj (.text:SSIDisable)
+                  00001c16    0000000a                   : ssi.obj (.text:SSIEnable)
+                  00001c20    00000008                   : ssi.obj (.text:SSIBusy)
+                  00001c28    00000006                   : gpio.obj (.text:GPIOIntClear)
+                  00001c2e    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00001c34    00000006     tm4c123gh6pm_startup_ccs.obj (.text:ResetISR)
+                  00001c3a    00000006     driverlib.lib : ssi.obj (.text:SSIClockSourceSet)
+                  00001c40    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00001c46    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00001c4c    00000004                                   : pre_init.obj (.text)
+
+.const     0    00001c50    000008ff     
+                  00001c50    000005f0     ssd1289.obj (.const:font_ascii)
+                  00002240    000000d8     driverlib.lib : gpio.obj (.const:g_ppui32GPIOIntMapSnowflake)
+                  00002318    000000c0                   : gpio.obj (.const:g_ppui32GPIOIntMapBlizzard)
+                  000023d8    00000090                   : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00002468    00000070                   : interrupt.obj (.const)
+                  000024d8    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00002544    0000000b     blinky.obj (.const:.string)
+
+.cinit     0    00002550    00000050     
+                  00002550    00000016     (.cinit..data.load) [load image, compression = rle]
+                  00002566    00000002     --HOLE-- [fill = 0]
+                  00002568    0000000c     (__TI_handler_table)
+                  00002574    00000004     --HOLE-- [fill = 0]
+                  00002578    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002580    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00002588    00000018     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.vtable    0    20000000    0000026c     UNINITIALIZED
+                  20000000    0000026c     driverlib.lib : interrupt.obj (.vtable)
+
+.stack     0    2000026c    00000200     UNINITIALIZED
+                  2000026c    00000200     --HOLE--
+
+.bss       0    20000470    0000016b     UNINITIALIZED
+                  20000470    00000154     blinky.obj (.bss:Cells)
+                  200005c4    00000004     (.common:selected_operation)
+                  200005c8    00000008     (.common:actual_number)
+                  200005d0    00000008     (.common:prev_number)
+                  200005d8    00000001     (.common:fcolorb)
+                  200005d9    00000001     (.common:fcolorg)
+                  200005da    00000001     (.common:fcolorr)
+
+.TI.noinit 
+*          0    20000470    00000000     UNINITIALIZED
+
+.data      0    200005dc    00000024     UNINITIALIZED
+                  200005dc    0000000c     XPT2046.obj (.data)
+                  200005e8    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  200005f0    00000008                                   : exit.obj (.data)
+                  200005f8    00000004     blinky.obj (.data)
+                  200005fc    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    200005dc    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002588 records: 3, size/record: 8, table size: 24
+	.data: load addr=00002550, load size=00000016 bytes, run addr=200005dc, run size=00000024 bytes, compression=rle
+	.bss: load addr=00002578, load size=00000008 bytes, run addr=20000470, run size=0000016b bytes, compression=zero_init
+	.vtable: load addr=00002580, load size=00000008 bytes, run addr=20000000, run size=0000026c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002568 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+0000170d  C$$EXIT                 
+20000470  Cells                   
+000019a9  GPIODirModeSet          
+00001c29  GPIOIntClear            
+00001bd3  GPIOIntEnable           
+00001ac1  GPIOIntRegister         
+00001ba9  GPIOIntStatus           
+000009c1  GPIOPadConfigSet        
+000015b1  GPIOPinConfigure        
+00001ad9  GPIOPinTypeGPIOOutput   
+00001b75  GPIOPinTypeSSI          
+00001c2f  GPIOPinWrite            
+00001149  IntEnable               
+000019d5  IntGPIOf                
+00001879  IntRegister             
+00001519  LCD_Writ_Bus            
+00001809  LCD_Write_COM           
+00001b37  LCD_Write_COM_DATA      
+00001a45  LCD_Write_DATA          
+00001bb7  LCD_clrXY               
+00001219  LCD_fillScr             
+0000026d  LCD_init                
+00001791  LCD_setXY               
+00001c35  ResetISR                
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+00001c21  SSIBusy                 
+00001c3b  SSIClockSourceSet       
+000017cd  SSIConfigSetExpClk      
+00001b87  SSIDataGetNonBlocking   
+00001c03  SSIDataPut              
+00001c0d  SSIDisable              
+00001c17  SSIEnable               
+00000c0d  SysCtlClockGet          
+00000d1d  SysCtlClockSet          
+00001c41  SysCtlDelay             
+000018ad  SysCtlPeripheralEnable  
+00001841  SysCtlPeripheralReady   
+00001bdf  Touch_ccs               
+00001275  Touch_getxy             
+00000af5  Touch_init              
+00001a85  Touch_prepare           
+00001beb  Touch_scs               
+00001641  Touch_spi               
+2000046c  __STACK_END             
+00000200  __STACK_SIZE            
+2000046c  __STACK_TOP             
+00002588  __TI_CINIT_Base         
+000025a0  __TI_CINIT_Limit        
+00002568  __TI_Handler_Table_Base 
+00002574  __TI_Handler_Table_Limit
+00001071  __TI_auto_init          
+200005f0  __TI_cleanup_ptr        
+00001bc5  __TI_decompress_none    
+00001c47  __TI_decompress_rle24   
+200005f4  __TI_dtors_ptr          
+00000000  __TI_static_base__      
+00001bf7  __TI_zero_init          
+00001b09  __aeabi_lmul            
+00000ff5  __aeabi_memclr          
+00000ff5  __aeabi_memclr4         
+00000ff5  __aeabi_memclr8         
+00000f59  __aeabi_memcpy          
+00000f59  __aeabi_memcpy4         
+00000f59  __aeabi_memcpy8         
+00000ff7  __aeabi_memset          
+00000ff7  __aeabi_memset4         
+00000ff7  __aeabi_memset8         
+00000465  __aeabi_uldivmod        
+ffffffff  __binit__               
+ffffffff  __c_args__              
+2000026c  __stack                 
+00001af1  _args_main              
+000014c9  _c_int00                
+200005e8  _lock                   
+200005e4  _n                      
+00001b5b  _nop                    
+00001b53  _register_lock          
+00001b4d  _register_unlock        
+00001c4d  _system_pre_init        
+200005ec  _unlock                 
+200005dc  _x                      
+200005e0  _y                      
+00001711  abort                   
+200005c8  actual_number           
+ffffffff  binit                   
+200005f8  cells_length            
+00001565  copy_in                 
+00001949  countTotal              
+000012cd  divide                  
+00000eb9  drawLine                
+00001979  drawPixel               
+00001aa5  eraseLast               
+00001719  exit                    
+200005d8  fcolorb                 
+200005d9  fcolorg                 
+200005da  fcolorr                 
+000015f9  findClickedButton       
+00001c50  font_ascii              
+20000000  g_pfnRAMVectors         
+00000000  g_pfnVectors            
+00000e11  init_calc               
+00000835  init_cells              
+00001751  isClicked               
+000013d5  itoa                    
+00000659  main                    
+200005fc  main_func_sp            
+00000f59  memcpy                  
+00000ffd  memset                  
+000016c9  minus                   
+00001325  multiply                
+000018e1  numberPress             
+200005d0  prev_number             
+00001b99  refreshData             
+00001429  renderActualNumber      
+00001479  renderPreviousNumber    
+000011b1  renderSelectedOperation 
+000019fd  resetNumbers            
+200005c4  selected_operation      
+00001a65  setColor                
+00001b21  setPixel                
+00001b61  sign                    
+0000137d  ssd1289_char            
+00001a21  ssd1289_string          
+00001915  summ                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_static_base__      
+00000000  g_pfnVectors            
+00000200  __STACK_SIZE            
+0000026d  LCD_init                
+00000465  __aeabi_uldivmod        
+00000659  main                    
+00000835  init_cells              
+000009c1  GPIOPadConfigSet        
+00000af5  Touch_init              
+00000c0d  SysCtlClockGet          
+00000d1d  SysCtlClockSet          
+00000e11  init_calc               
+00000eb9  drawLine                
+00000f59  __aeabi_memcpy          
+00000f59  __aeabi_memcpy4         
+00000f59  __aeabi_memcpy8         
+00000f59  memcpy                  
+00000ff5  __aeabi_memclr          
+00000ff5  __aeabi_memclr4         
+00000ff5  __aeabi_memclr8         
+00000ff7  __aeabi_memset          
+00000ff7  __aeabi_memset4         
+00000ff7  __aeabi_memset8         
+00000ffd  memset                  
+00001071  __TI_auto_init          
+00001149  IntEnable               
+000011b1  renderSelectedOperation 
+00001219  LCD_fillScr             
+00001275  Touch_getxy             
+000012cd  divide                  
+00001325  multiply                
+0000137d  ssd1289_char            
+000013d5  itoa                    
+00001429  renderActualNumber      
+00001479  renderPreviousNumber    
+000014c9  _c_int00                
+00001519  LCD_Writ_Bus            
+00001565  copy_in                 
+000015b1  GPIOPinConfigure        
+000015f9  findClickedButton       
+00001641  Touch_spi               
+000016c9  minus                   
+0000170d  C$$EXIT                 
+00001711  abort                   
+00001719  exit                    
+00001751  isClicked               
+00001791  LCD_setXY               
+000017cd  SSIConfigSetExpClk      
+00001809  LCD_Write_COM           
+00001841  SysCtlPeripheralReady   
+00001879  IntRegister             
+000018ad  SysCtlPeripheralEnable  
+000018e1  numberPress             
+00001915  summ                    
+00001949  countTotal              
+00001979  drawPixel               
+000019a9  GPIODirModeSet          
+000019d5  IntGPIOf                
+000019fd  resetNumbers            
+00001a21  ssd1289_string          
+00001a45  LCD_Write_DATA          
+00001a65  setColor                
+00001a85  Touch_prepare           
+00001aa5  eraseLast               
+00001ac1  GPIOIntRegister         
+00001ad9  GPIOPinTypeGPIOOutput   
+00001af1  _args_main              
+00001b09  __aeabi_lmul            
+00001b21  setPixel                
+00001b37  LCD_Write_COM_DATA      
+00001b4d  _register_unlock        
+00001b53  _register_lock          
+00001b5b  _nop                    
+00001b61  sign                    
+00001b75  GPIOPinTypeSSI          
+00001b87  SSIDataGetNonBlocking   
+00001b99  refreshData             
+00001ba9  GPIOIntStatus           
+00001bb7  LCD_clrXY               
+00001bc5  __TI_decompress_none    
+00001bd3  GPIOIntEnable           
+00001bdf  Touch_ccs               
+00001beb  Touch_scs               
+00001bf7  __TI_zero_init          
+00001c03  SSIDataPut              
+00001c0d  SSIDisable              
+00001c17  SSIEnable               
+00001c21  SSIBusy                 
+00001c29  GPIOIntClear            
+00001c2f  GPIOPinWrite            
+00001c35  ResetISR                
+00001c3b  SSIClockSourceSet       
+00001c41  SysCtlDelay             
+00001c47  __TI_decompress_rle24   
+00001c4d  _system_pre_init        
+00001c50  font_ascii              
+00002568  __TI_Handler_Table_Base 
+00002574  __TI_Handler_Table_Limit
+00002588  __TI_CINIT_Base         
+000025a0  __TI_CINIT_Limit        
+20000000  g_pfnRAMVectors         
+2000026c  __stack                 
+2000046c  __STACK_END             
+2000046c  __STACK_TOP             
+20000470  Cells                   
+200005c4  selected_operation      
+200005c8  actual_number           
+200005d0  prev_number             
+200005d8  fcolorb                 
+200005d9  fcolorg                 
+200005da  fcolorr                 
+200005dc  _x                      
+200005e0  _y                      
+200005e4  _n                      
+200005e8  _lock                   
+200005ec  _unlock                 
+200005f0  __TI_cleanup_ptr        
+200005f4  __TI_dtors_ptr          
+200005f8  cells_length            
+200005fc  main_func_sp            
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  binit                   
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+
+[125 symbols]
